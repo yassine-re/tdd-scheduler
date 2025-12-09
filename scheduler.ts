@@ -4,6 +4,7 @@ export interface Clock {
 
 export interface Task {
   name: string
+  action: () => void
 }
 export class Scheduler {
   private tasks: Task[] = []
@@ -12,6 +13,9 @@ export class Scheduler {
 
   getTasks(): Task[] {
     return this.tasks
+  }
+  setTask(name: string, action: () => void): void {
+    this.tasks.push({ name, action })
   }
 }
 

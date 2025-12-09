@@ -11,8 +11,8 @@ describe("Scheduler", () => {
     const clock = new FakeClock(new Date("2025-01-01T00:00:00"))
     const scheduler = new Scheduler(clock)
     const mockAction = jest.fn()
-    
-    scheduler.setTask({ name: "Test Task" }, mockAction)
+
+    scheduler.setTask("Test Task", mockAction)
 
     const tasks = scheduler.getTasks()
     expect(tasks).toHaveLength(1)
