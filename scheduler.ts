@@ -9,10 +9,10 @@ export interface Task {
 export class Scheduler {
   private tasks: Task[] = []
 
-  constructor(private clock: FakeClock) {}
+  constructor(private clock: Clock) {}
 
-  getTasks(): Task[] {
-    return this.tasks
+  getTasks(): readonly Task[] {
+    return [...this.tasks]
   }
   setTask(name: string, action: () => void): void {
     this.tasks.push({ name, action })
